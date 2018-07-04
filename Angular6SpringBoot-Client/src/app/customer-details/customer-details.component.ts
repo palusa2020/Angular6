@@ -12,15 +12,17 @@ import { CustomersListComponent } from '../customers-list/customers-list.compone
 export class CustomerDetailsComponent implements OnInit {
 
   @Input() customer: Customer;
+//  @Input() pagenum: number;
+  //pagenum=12;
 
   constructor(private customerService: CustomerService, private listComponent: CustomersListComponent) { }
 
   ngOnInit() {
   }
 
-  updateActive(isActive: boolean) {
+  updateActive(mycust: Customer) {
     this.customerService.updateCustomer(this.customer.id,
-      { name: this.customer.name, age: this.customer.age, active: isActive })
+      { name: mycust.name, age: mycust.age, active: false })
       .subscribe(
         data => {
           console.log(data);

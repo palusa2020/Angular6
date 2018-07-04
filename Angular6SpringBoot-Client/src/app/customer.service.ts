@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class CustomerService {
 
   private baseUrl = 'http://localhost:8080/api/customers';
-  private baseUrl2 = 'http://localhost:8080/api/view?p=1';
+  private baseUrl2 = 'http://localhost:8080/api/view?p=';
 
   constructor(private http: HttpClient) { }
 
@@ -28,9 +28,14 @@ export class CustomerService {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
+/*
   getCustomersList(): Observable<any> {
     //return this.http.get(`${this.baseUrl}`);
-    return this.http.get(`${this.baseUrl2}`);
+    return this.http.get(`${this.baseUrl}`);
+  }
+*/
+  getCustomersList(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl2}${id}`);
   }
 
   getCustomersByAge(age: number): Observable<any> {

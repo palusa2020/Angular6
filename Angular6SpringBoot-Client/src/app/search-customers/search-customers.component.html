@@ -11,8 +11,29 @@
     </div>
   </form>
 </div>
+
+<div *ngFor="let customer of customers " style="width: 300px;">
+    <h4>{{customer.id}} - {{customer.name}} {{customer.age}}</h4>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="customer.name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="text" class="form-control" id="age" required [(ngModel)]="customer.age" name="age">
+    </div>
+
+  <span class="button is-small btn-primary" (click)='updateActive(customer)'>Save</span>
+
+</div>
+
+<!--
+  <customer-details [customer]='customer'></customer-details>
 <ul>
   <li *ngFor="let customer of customers">
     <h4>{{customer.id}} - {{customer.name}} {{customer.age}}</h4>
   </li>
 </ul>
+-->

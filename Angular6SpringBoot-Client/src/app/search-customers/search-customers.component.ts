@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input } from '@angular/core';
 import { Customer } from '../customer';
 import { CustomerService } from '../customer.service';
 
@@ -8,6 +8,9 @@ import { CustomerService } from '../customer.service';
   styleUrls: ['./search-customers.component.css']
 })
 export class SearchCustomersComponent implements OnInit {
+
+  @Input() customer: Customer;
+
 
   age: number;
   customers: Customer[];
@@ -26,4 +29,15 @@ export class SearchCustomersComponent implements OnInit {
   onSubmit() {
     this.searchCustomers();
   }
+  updateActive(mycust: Customer) {
+    this.dataService.updateCustomer(mycust.id,
+      { name: mycust.name, age: mycust.age, active: false })
+      .subscribe(
+        data => {
+          console.log(data);
+          this.customer = data as Customer;
+        },
+        error => console.log(error));
+  }
+
 }

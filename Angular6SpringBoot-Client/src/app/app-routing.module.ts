@@ -6,7 +6,7 @@ import { SearchCustomersComponent } from './search-customers/search-customers.co
 
 const routes: Routes = [
     { path: '', redirectTo: 'customer', pathMatch: 'full' },
-    { path: 'customer', component: CustomersListComponent },
+    { path: 'customer/:pagenum', component: CustomersListComponent },
     { path: 'add', component: CreateCustomerComponent },
     { path: 'findbyage', component: SearchCustomersComponent },
 ];

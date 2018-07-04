@@ -1,9 +1,18 @@
 <h1>Customers</h1>
 
+
 <div *ngFor="let customer of customers | async" style="width: 300px;">
   <customer-details [customer]='customer'></customer-details>
 </div>
 
+{{ppagenum}} PPPPPP {{npagenum}}
+
+
+<a href='/customer/{{ppagenum}}'>Previous</a>
+<a href='/customer/{{npagenum}}'>Next</a>
+
 <div>
   <button type="button" class="button btn-danger" (click)='deleteCustomers()'>Delete All</button>
 </div>
+
+
