@@ -12,26 +12,19 @@
 
 -->
 
-Page Num IS: {{pagenum}}
-
-    <div class="form-group">
+  <div>
       <label for="name">Name</label>
       <input type="text" class="form-control" id="name" required [(ngModel)]="customer.name" name="name">
     </div>
 
-    <div class="form-group">
+  <div>
       <label for="age">Age</label>
       <input type="text" class="form-control" id="age" required [(ngModel)]="customer.age" name="age">
     </div>
 
   <span class="button is-small btn-primary" *ngIf='!customer.active' (click)='updateActive(customer)'>Save</span>
-<!--
-  <span class="button is-small btn-primary" *ngIf='customer.active' (click)='updateActive(customer)'>Inactive</span>
-
-  <span class="button is-small btn-primary" *ngIf='!customer.active' (click)='updateActive(customer)'>Active</span>
--->
-
   <span class="button is-small btn-danger" (click)='deleteCustomer()'>Delete</span>
+
 
   <hr/>
 </div>

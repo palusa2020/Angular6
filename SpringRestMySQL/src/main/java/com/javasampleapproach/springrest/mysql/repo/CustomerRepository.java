@@ -10,4 +10,7 @@ import com.javasampleapproach.springrest.mysql.model.Customer;
 //public interface CustomerRepository extends CrudRepository<Customer, Long> {
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
 	List<Customer> findByAge(int age);
+
+List<Customer> findByNameContaining(String name);
+
 }

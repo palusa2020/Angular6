@@ -3,9 +3,10 @@
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="lastname">Age</label>
-      <input type="text" class="form-control" id="age" required [(ngModel)]="age" name="age">
+      <input type="text" class="form-control" id="age" [(ngModel)]="age" name="age"> <hr>OR<hr>
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="name" name="age">
     </div>
-
     <div class="btn-group">
       <button type="submit" class="btn btn-success">Submit</button>
     </div>

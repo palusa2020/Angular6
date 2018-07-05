@@ -9,6 +9,7 @@ const routes: Routes = [
     { path: 'customer/:pagenum', component: CustomersListComponent },
     { path: 'add', component: CreateCustomerComponent },
     { path: 'findbyage', component: SearchCustomersComponent },
+    { path: 'findByNameContaining', component: SearchCustomersComponent },
 ];
 
 @NgModule({

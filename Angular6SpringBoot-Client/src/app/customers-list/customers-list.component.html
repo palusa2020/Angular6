@@ -1,12 +1,10 @@
 <h1>Customers</h1>
 
 
+<!-- new code
 <div *ngFor="let customer of customers | async" style="width: 300px;">
   <customer-details [customer]='customer'></customer-details>
 </div>
-
-{{ppagenum}} PPPPPP {{npagenum}}
-
 
 <a href='/customer/{{ppagenum}}'>Previous</a>
 <a href='/customer/{{npagenum}}'>Next</a>
@@ -16,3 +14,23 @@
 </div>
 
 
+new code-->
+<div *ngFor="let customer of customers | async" style="width: 300px;">
+<div *ngIf="customer">
+  <div>
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="customer.name" name="name">
+    </div>
+
+  <div>
+      <label for="age">Age</label>
+      <input type="text" class="form-control" id="age" required [(ngModel)]="customer.age" name="age">
+    </div>
+
+  <span class="button is-small btn-primary" *ngIf='!customer.active' (click)='updateActive(customer)'>Save</span>
+  <span class="button is-small btn-danger" (click)='deleteCustomer()'>Delete</span>
+  <hr/>
+</div>
+
+<a href='/customer/{{ppagenum}}'>Previous</a>
+<a href='/customer/{{npagenum}}'>Next</a>

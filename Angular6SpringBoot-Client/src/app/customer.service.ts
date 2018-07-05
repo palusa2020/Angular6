@@ -41,6 +41,9 @@ export class CustomerService {
   getCustomersByAge(age: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/age/${age}`);
   }
+  getCustomersByName(name: String): Observable<any> {
+    return this.http.get(`${this.baseUrl}/name/${name}`);
+  }
 
   deleteAll(): Observable<any> {
     return this.http.delete(`${this.baseUrl}` + `/delete`, { responseType: 'text' });

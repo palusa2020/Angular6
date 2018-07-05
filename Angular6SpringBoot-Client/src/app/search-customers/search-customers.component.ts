@@ -14,6 +14,7 @@ export class SearchCustomersComponent implements OnInit {
 
   age: number;
   customers: Customer[];
+  name String;
 
   constructor(private dataService: CustomerService) { }
 
@@ -26,8 +27,17 @@ export class SearchCustomersComponent implements OnInit {
       .subscribe(customers => this.customers = customers);
   }
 
+  private searchCustomersByName() {
+    this.dataService.getCustomersByName(this.name)
+      .subscribe(customers => this.customers = customers);
+  }
+
   onSubmit() {
-    this.searchCustomers();
+    if ( this.age>0) {
+      this.searchCustomers();
+    }else{
+      this.searchCustomersByName();
+    }
   }
   updateActive(mycust: Customer) {
     this.dataService.updateCustomer(mycust.id,

@@ -80,6 +80,12 @@ public class CustomerController {
 		List<Customer> customers = repository.findByAge(age);
 		return customers;
 	}
+	@GetMapping(value = "customers/name/{name}")
+	public List<Customer> findByNameContaining(@PathVariable String name) {
+
+		List<Customer> customers = repository.findByNameContaining(name);
+		return customers;
+	}
 
 	@PutMapping("/customers/{id}")
 	public ResponseEntity<Customer> updateCustomer(@PathVariable("id") long id, @RequestBody Customer customer) {
